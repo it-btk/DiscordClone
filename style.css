@@ -285,6 +285,7 @@ body {
   background-color: var(--dark-charcoal);
   color: var(--white);
   padding: 80px 40px 40px;
+  margin-top: auto;
 }
 
 .footer-container {
@@ -297,27 +298,43 @@ body {
 .footer-top {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--blurple);
   padding-bottom: 40px;
-  margin-bottom: 40px;
 }
 
 .footer-brand h2 {
   font-size: 2rem;
   font-weight: 800;
   color: var(--blurple);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.social-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--blurple);
 }
 
 .footer-links {
   display: flex;
-  gap: 80px;
+  gap: 100px;
 }
 
 .footer-col h4 {
   color: var(--blurple);
   margin-bottom: 20px;
   font-size: 1rem;
+  font-weight: 400;
 }
 
 .footer-col ul {
@@ -325,17 +342,24 @@ body {
 }
 
 .footer-col ul li {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .footer-col ul li a {
   color: var(--white);
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 400;
 }
 
 .footer-col ul li a:hover {
   text-decoration: underline;
+}
+
+.footer-bottom-wrapper {
+  border-top: 1px solid var(--blurple);
+  padding-top: 32px;
+  margin-top: 20px;
 }
 
 .footer-bottom {
@@ -349,25 +373,29 @@ body {
   align-items: center;
   gap: 10px;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  color: var(--white);
+  text-decoration: none;
 }
 
 .footer-bottom-brand img {
-  height: 30px;
+  height: 34px;
 }
 
 .btn-footer {
   background-color: var(--blurple);
   color: var(--white);
-  padding: 8px 16px;
+  padding: 10px 24px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.2s;
+  font-size: 0.95rem;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .btn-footer:hover {
   background-color: var(--blurple-hover);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
 /* =========================

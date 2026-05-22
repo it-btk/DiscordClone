@@ -387,7 +387,12 @@ if (file_exists($counterFile)) {
     <div class="footer-top">
       <div class="footer-brand">
         <h2>Discord Cloner</h2>
-        <p style="max-width: 250px; color: var(--blurple); margin-top: 10px;">Lokale, sichere und schnelle Tools für deinen Discord Alltag.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -408,12 +413,14 @@ if (file_exists($counterFile)) {
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-brand">
-        <i class="fab fa-discord" style="font-size: 1.5rem;"></i>
-        Discord Cloner
+    <div class="footer-bottom-wrapper">
+      <div class="footer-bottom">
+        <a href="../" class="footer-bottom-brand">
+          <i class="fab fa-discord" style="font-size: 1.8rem;"></i>
+          Discord Cloner
+        </a>
+        <a href="../clone/server/" class="btn-footer">Starten</a>
       </div>
-      <a href="../clone/server/" class="btn-footer">Starten</a>
     </div>
   </div>
 </footer>
