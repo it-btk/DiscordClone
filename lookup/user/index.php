@@ -20,14 +20,17 @@ if (file_exists($counterFile)) {
       max-width: 560px;
     }
     .lookup-area h2 {
-      font-size: 0.95rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 1.4rem;
-      color: rgba(255,255,255,0.9);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .lookup-area p {
-      font-size: 0.82rem;
-      color: var(--text-soft);
+      font-size: 0.9rem;
+      color: var(--text-muted);
       margin-bottom: 1.4rem;
       line-height: 1.6;
     }
@@ -44,7 +47,7 @@ if (file_exists($counterFile)) {
       height: 52px;
       padding: 0 1.8rem;
       border: none;
-      border-radius: 14px;
+      border-radius: var(--radius-md);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -53,12 +56,11 @@ if (file_exists($counterFile)) {
       font-size: 0.92rem;
       font-weight: 700;
       color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      background: var(--blurple);
       flex-shrink: 0;
-      transition: transform 0.15s, opacity 0.15s;
     }
-    .lookup-btn:active {
-      transform: scale(0.97);
+    .lookup-btn:hover {
+      background: var(--blurple-dark);
     }
 
     /* =========================
@@ -67,9 +69,9 @@ if (file_exists($counterFile)) {
     .user-result {
       display: none;
       margin-top: 2rem;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 20px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
       padding: 1.8rem;
     }
     .user-result.visible {
@@ -88,7 +90,7 @@ if (file_exists($counterFile)) {
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
-      background: rgba(255,255,255,0.04);
+      background: var(--bg-darker);
     }
     .user-avatar-wrap img {
       width: 100%;
@@ -98,12 +100,12 @@ if (file_exists($counterFile)) {
     .user-meta h3 {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 0.25rem;
     }
     .user-meta .user-id-display {
       font-size: 0.82rem;
-      font-family: "JetBrains Mono", "SF Mono", monospace;
+      font-family: "Consolas", "Monaco", monospace;
       color: var(--text-soft);
       word-break: break-all;
     }
@@ -122,15 +124,15 @@ if (file_exists($counterFile)) {
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-soft);
     }
     .user-info-item .value {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.85);
+      color: var(--text);
       font-weight: 600;
     }
     .user-info-item .value.mono {
-      font-family: "JetBrains Mono", "SF Mono", monospace;
+      font-family: "Consolas", "Monaco", monospace;
       font-size: 0.82rem;
     }
 
@@ -140,9 +142,9 @@ if (file_exists($counterFile)) {
     .user-error {
       display: none;
       margin-top: 1.5rem;
-      background: rgba(255,107,107,0.06);
-      border: 1px solid rgba(255,107,107,0.15);
-      border-radius: 14px;
+      background: rgba(218, 55, 60, 0.08);
+      border: 1px solid rgba(218, 55, 60, 0.15);
+      border-radius: var(--radius-md);
       padding: 1.2rem 1.5rem;
       align-items: center;
       gap: 0.8rem;
@@ -165,18 +167,18 @@ if (file_exists($counterFile)) {
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255,107,107,0.12);
-      border: 1px solid rgba(255,107,107,0.25);
-      color: var(--danger);
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      color: var(--text);
       padding: 0.8rem 1.5rem;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       font-size: 0.85rem;
       font-weight: 600;
       display: none;
       align-items: center;
       gap: 0.6rem;
       z-index: 999;
-      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
       animation: slideUp 0.25s ease;
     }
     .toast.visible {
@@ -223,9 +225,9 @@ if (file_exists($counterFile)) {
   <section class="left-side">
 
     <div class="lookup-area">
-      <h2><i class="fas fa-search" style="margin-right:0.4rem;"></i> User Lookup</h2>
+      <h2><i class="fas fa-search"></i> User Lookup</h2>
       <p>
-        Finde heraus, wann ein Discord-Account erstellt wurde – ganz ohne Token.
+        Finde heraus, wann ein Discord-Account erstellt wurde - ganz ohne Token.
         Gib einfach eine Discord User ID (Snowflake) ein.
       </p>
 

@@ -315,7 +315,6 @@ a {
 .feature-image i {
   font-size: 12rem;
   color: var(--blurple);
-  filter: drop-shadow(0 8px 24px rgba(88, 101, 242, 0.3));
 }
 
 .feature-text {
@@ -340,7 +339,7 @@ a {
    STATS
 ====================================================== */
 .stats-section {
-  background: var(--bg-dark);
+  background: var(--bg);
   text-align: center;
   padding: 100px 24px;
 }
@@ -362,12 +361,11 @@ a {
 }
 
 .stat-item {
-  background: var(--bg);
+  background: var(--bg-dark);
   min-width: 220px;
   padding: 36px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-elevation);
 }
 
 .stat-item h3 {
@@ -388,7 +386,7 @@ a {
 ====================================================== */
 .page-wrapper {
   min-height: 100vh;
-  background: var(--bg);
+  background: var(--bg-dark);
   display: flex;
   flex-direction: column;
 }
@@ -402,6 +400,7 @@ a {
   background: var(--bg);
   border-bottom: 1px solid var(--border-light);
   z-index: 999;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .page-header .navbar {
@@ -490,11 +489,19 @@ a {
 .form-area h2,
 .panel h3,
 .wiki-card h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 12px;
   color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-area h2 i,
+.wiki-card h2 i {
+  color: var(--blurple);
 }
 
 .form-area p,
@@ -969,9 +976,9 @@ a {
 ====================================================== */
 .footer {
   margin-top: auto;
-  background: var(--bg-dark);
+  background: var(--bg);
   color: var(--text);
-  padding: 80px 32px 40px;
+  padding: 60px 32px 32px;
   border-top: 1px solid var(--border-light);
 }
 
@@ -988,10 +995,10 @@ a {
 }
 
 .footer-brand h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .social-links {
@@ -1003,7 +1010,7 @@ a {
 .social-links a {
   width: 40px;
   height: 40px;
-  background: var(--bg-dark);
+  background: var(--bg-darker);
   color: var(--text-muted);
   border-radius: 50%;
   display: flex;
@@ -1014,6 +1021,7 @@ a {
 
 .social-links a:hover {
   color: var(--blurple);
+  background: var(--bg-dark);
 }
 
 .footer-links {
