@@ -137,26 +137,6 @@ if (file_exists($counterFile)) {
       transform: none;
     }
 
-    /* save token toggle */
-    .save-token-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-top: 0.25rem;
-      font-size: 0.78rem;
-      color: var(--text-soft);
-      cursor: pointer;
-      user-select: none;
-    }
-    .save-token-toggle input[type="checkbox"] {
-      accent-color: var(--primary);
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
-    .save-token-toggle:hover {
-      color: #fff;
-    }
     .token-status {
       font-size: 0.72rem;
       color: var(--success);
@@ -251,10 +231,6 @@ if (file_exists($counterFile)) {
           <input type="password" name="token" id="token" placeholder="Dein Discord User Token..." required>
         </div>
 
-        <label class="save-token-toggle">
-          <input type="checkbox" id="save-token" checked>
-          <i class="fas fa-save"></i> Token im Browser speichern
-        </label>
         <div class="token-status" id="token-status">
           <i class="fas fa-check-circle"></i>
           <span>Token aus lokalem Speicher geladen</span>
@@ -310,7 +286,7 @@ if (file_exists($counterFile)) {
   <span>Alle Rechte vorbehalten.</span>
 </footer>
 
-<script src="../script.js"></script>
+<script src="../../script.js"></script>
 <script>
 (function () {
   const STORAGE_KEY = 'discord_cloner_token';
@@ -325,7 +301,6 @@ if (file_exists($counterFile)) {
   const cloneCountEl = document.getElementById('clone-count');
 
   const tokenInput = document.getElementById('token');
-  const saveCheckbox = document.getElementById('save-token');
   const tokenStatus = document.getElementById('token-status');
 
   // Popup elements
@@ -341,7 +316,6 @@ if (file_exists($counterFile)) {
     setTimeout(() => popupInput.focus(), 350);
   } else {
     tokenInput.value = savedToken;
-    saveCheckbox.checked = true;
     tokenStatus.classList.add('visible');
   }
 
@@ -358,7 +332,6 @@ if (file_exists($counterFile)) {
     localStorage.setItem(STORAGE_KEY, token);
 
     tokenInput.value = token;
-    saveCheckbox.checked = true;
     tokenStatus.classList.add('visible');
 
     popupOverlay.classList.add('hidden');
@@ -372,27 +345,12 @@ if (file_exists($counterFile)) {
   });
 
   // ---- localStorage token handling ----
-
-  saveCheckbox.addEventListener('change', function () {
-    if (this.checked) {
-      const token = tokenInput.value.trim();
-      if (token) {
-        localStorage.setItem(STORAGE_KEY, token);
-        tokenStatus.querySelector('span').textContent = 'Token gespeichert';
-        tokenStatus.classList.add('visible');
-        setTimeout(() => tokenStatus.classList.remove('visible'), 2500);
-      } else {
-        this.checked = false;
-      }
+  tokenInput.addEventListener('input', function () {
+    if (this.value.trim()) {
+      localStorage.setItem(STORAGE_KEY, this.value.trim());
     } else {
       localStorage.removeItem(STORAGE_KEY);
       tokenStatus.classList.remove('visible');
-    }
-  });
-
-  tokenInput.addEventListener('input', function () {
-    if (saveCheckbox.checked && this.value.trim()) {
-      localStorage.setItem(STORAGE_KEY, this.value.trim());
     }
   });
 
@@ -410,9 +368,7 @@ if (file_exists($counterFile)) {
       return;
     }
 
-    if (saveCheckbox.checked) {
-      localStorage.setItem(STORAGE_KEY, token);
-    }
+    localStorage.setItem(STORAGE_KEY, token);
 
     if (typeof Cloner !== 'undefined') {
       const cloner = new Cloner(token);

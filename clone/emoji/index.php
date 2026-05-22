@@ -26,25 +26,6 @@ if (file_exists($counterFile)) {
       flex: 1;
       margin-bottom: 0;
     }
-    .save-token-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-top: 0.25rem;
-      font-size: 0.78rem;
-      color: var(--text-soft);
-      cursor: pointer;
-      user-select: none;
-    }
-    .save-token-toggle input[type="checkbox"] {
-      accent-color: var(--primary);
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
-    .save-token-toggle:hover {
-      color: #fff;
-    }
     .token-status {
       font-size: 0.72rem;
       color: var(--success);
@@ -257,10 +238,6 @@ if (file_exists($counterFile)) {
           <input type="password" name="token" id="token" placeholder="Dein Discord User Token..." required>
         </div>
 
-        <label class="save-token-toggle">
-          <input type="checkbox" id="save-token" checked>
-          <i class="fas fa-save"></i> Token im Browser speichern
-        </label>
         <div class="token-status" id="token-status">
           <i class="fas fa-check-circle"></i>
           <span>Token aus lokalem Speicher geladen</span>
@@ -315,7 +292,7 @@ if (file_exists($counterFile)) {
   <span>Alle Rechte vorbehalten.</span>
 </footer>
 
-<script src="../script.js"></script>
+<script src="../../script.js"></script>
 <script>
 (function () {
   const STORAGE_KEY = 'discord_cloner_token';
@@ -329,7 +306,6 @@ if (file_exists($counterFile)) {
   const progressIcon = document.getElementById('progress-icon');
 
   const tokenInput = document.getElementById('token');
-  const saveCheckbox = document.getElementById('save-token');
   const tokenStatus = document.getElementById('token-status');
 
   // Popup elements
@@ -342,15 +318,10 @@ if (file_exists($counterFile)) {
   // Check if token exists in localStorage. If not, show the popup.
   const savedToken = localStorage.getItem(STORAGE_KEY);
   if (!savedToken) {
-    // Show the popup on first visit (no token stored yet)
     popupOverlay.classList.remove('hidden');
-
-    // Focus the input
     setTimeout(() => popupInput.focus(), 350);
   } else {
-    // Token exists – pre-fill the form fields
     tokenInput.value = savedToken;
-    saveCheckbox.checked = true;
     tokenStatus.classList.add('visible');
   }
 
@@ -365,12 +336,8 @@ if (file_exists($counterFile)) {
     popupInput.style.borderColor = '';
     popupInput.placeholder = 'Token hier eingefügen...';
 
-    // Store in localStorage
     localStorage.setItem(STORAGE_KEY, token);
-
-    // Pre-fill the main form
     tokenInput.value = token;
-    saveCheckbox.checked = true;
     tokenStatus.classList.add('visible');
 
     // Close the popup
@@ -385,30 +352,13 @@ if (file_exists($counterFile)) {
     }
   });
 
-  // ---- localStorage token handling (for the main form) ----
-
-  // Save token when checkbox is toggled
-  saveCheckbox.addEventListener('change', function () {
-    if (this.checked) {
-      const token = tokenInput.value.trim();
-      if (token) {
-        localStorage.setItem(STORAGE_KEY, token);
-        tokenStatus.querySelector('span').textContent = 'Token gespeichert';
-        tokenStatus.classList.add('visible');
-        setTimeout(() => tokenStatus.classList.remove('visible'), 2500);
-      } else {
-        this.checked = false;
-      }
+  // ---- localStorage token handling ----
+  tokenInput.addEventListener('input', function () {
+    if (this.value.trim()) {
+      localStorage.setItem(STORAGE_KEY, this.value.trim());
     } else {
       localStorage.removeItem(STORAGE_KEY);
       tokenStatus.classList.remove('visible');
-    }
-  });
-
-  // Also save on token input change if checkbox is checked
-  tokenInput.addEventListener('input', function () {
-    if (saveCheckbox.checked && this.value.trim()) {
-      localStorage.setItem(STORAGE_KEY, this.value.trim());
     }
   });
 
@@ -647,10 +597,8 @@ if (file_exists($counterFile)) {
       return;
     }
 
-    // Save token if checkbox is checked
-    if (saveCheckbox.checked) {
-      localStorage.setItem(STORAGE_KEY, token);
-    }
+    // Save token before starting
+    localStorage.setItem(STORAGE_KEY, token);
 
     const cloner = new EmojiCloner(token);
     await cloner.start(src, dst);
