@@ -1,6 +1,6 @@
 <?php
 // Read counter
-$counterFile = __DIR__ . '/counter.json';
+$counterFile = __DIR__ . '/../../counter.json';
 $count = 0;
 if (file_exists($counterFile)) {
     $data = json_decode(file_get_contents($counterFile), true);
@@ -14,7 +14,7 @@ if (file_exists($counterFile)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Lookup – Discord Cloner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../style.css">
   <style>
     .lookup-area {
       max-width: 560px;
@@ -200,21 +200,21 @@ if (file_exists($counterFile)) {
 
 <header class="topbar">
   <div class="brand">
-    <img src="logo.png" alt="IT-Solutions Bittkau" class="brand-logo">
+    <img src="../../logo.png" alt="IT-Solutions Bittkau" class="brand-logo">
     <div class="brand-text">
       <span class="brand-title">Discord Cloner</span>
       <span class="brand-sub">We are not afiliated with Discord</span>
     </div>
   </div>
   <nav class="top-nav">
-    <a href="index.php" class="nav-link">Start</a>
-    <a href="server.php" class="nav-link">Server Cloner</a>
-    <a href="emojis.php" class="nav-link">Nur Emojis</a>
-    <a href="lookup.php" class="nav-link" style="background:rgba(124,92,255,0.15);color:#fff;">User Lookup</a>
-    <a href="wiki.php" class="nav-link">Wiki / Anleitung</a>
+    <a href="../../" class="nav-link">Start</a>
+    <a href="../../clone/server/" class="nav-link">Server Cloner</a>
+    <a href="../../clone/emoji/" class="nav-link">Nur Emojis</a>
+    <a href="../../lookup/user/" class="nav-link active">User Lookup</a>
+    <a href="../../wiki/" class="nav-link">Wiki</a>
   </nav>
   <div class="status-badge">
-    <span>Bereits <strong id="clone-count"><?php echo $count; ?></strong> Server geklont</span>
+    <strong id="clone-count"><?php echo $count; ?></strong> Aktionen
   </div>
 </header>
 
@@ -397,7 +397,7 @@ function lookupUser(userId) {
 }
 
 function trackLookup() {
-  fetch('counter.php', {
+  fetch('../../counter.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: 'action=lookup'
