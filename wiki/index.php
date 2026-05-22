@@ -200,28 +200,26 @@ if (file_exists($counterFile)) {
     }
   </style>
 </head>
-<body>
+<body class="page-wrapper">
 
-<header class="topbar">
-  <div class="brand">
-    <img src="../../logo.png" alt="IT-Solutions Bittkau" class="brand-logo">
-    <div class="brand-text">
-      <span class="brand-title">Discord Cloner</span>
-      <span class="brand-sub">We are not afiliated with Discord</span>
+<div class="page-header">
+  <nav class="navbar" style="position: relative; padding: 20px 40px;">
+    <a href="../" class="nav-brand">
+      <i class="fab fa-discord" style="font-size: 1.8rem;"></i>
+      Discord Cloner
+    </a>
+    <div class="nav-links">
+      <a href="../clone/server/">Server Cloner</a>
+      <a href="../clone/emoji/">Emoji Cloner</a>
+      <a href="../lookup/user/">User Lookup</a>
+      <a href="../lookup/token/">Token Check</a>
+      <a href="../wiki/">Wiki</a>
     </div>
-  </div>
-  <nav class="top-nav">
-    <a href="../../" class="nav-link">Start</a>
-    <a href="../../clone/server/" class="nav-link">Server Cloner</a>
-    <a href="../../clone/emoji/" class="nav-link">Nur Emojis</a>
-    <a href="../../lookup/user/" class="nav-link">User Lookup</a>
-    <a href="../../lookup/token/" class="nav-link">Token Check</a>
-    <a href="../../wiki/" class="nav-link" active>Wiki</a>
+    <div class="nav-right">
+      <a href="../clone/server/" class="btn-login">Starten</a>
+    </div>
   </nav>
-  <div class="status-badge">
-    <strong id="clone-count"><?php echo $count; ?></strong> Aktionen
-  </div>
-</header>
+</div>
 
 <main class="wiki-wrapper">
   <div class="wiki-header">
@@ -384,9 +382,40 @@ if (file_exists($counterFile)) {
   </div>
 </main>
 
-<footer>
-  <span>&copy; 2026 IT-Solutions Bittkau</span>
-  <span>Alle Rechte vorbehalten.</span>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>Discord Cloner</h2>
+        <p style="max-width: 250px; color: var(--blurple); margin-top: 10px;">Lokale, sichere und schnelle Tools für deinen Discord Alltag.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="../clone/server/">Server Cloner</a></li>
+            <li><a href="../clone/emoji/">Emoji Cloner</a></li>
+            <li><a href="../lookup/user/">User Lookup</a></li>
+            <li><a href="../lookup/token/">Token Check</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ressourcen</h4>
+          <ul>
+            <li><a href="../wiki/">Wiki</a></li>
+            <li><a href="https://github.com/it-btk/DiscordClone">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-brand">
+        <i class="fab fa-discord" style="font-size: 1.5rem;"></i>
+        Discord Cloner
+      </div>
+      <a href="../clone/server/" class="btn-footer">Starten</a>
+    </div>
+  </div>
 </footer>
 
 </body>
