@@ -204,22 +204,22 @@ if (file_exists($counterFile)) {
 
 <header class="topbar">
   <div class="brand">
-    <img src="../logo.png" alt="IT-Solutions Bittkau" class="brand-logo">
+    <img src="../../logo.png" alt="IT-Solutions Bittkau" class="brand-logo">
     <div class="brand-text">
       <span class="brand-title">Discord Cloner</span>
       <span class="brand-sub">We are not afiliated with Discord</span>
     </div>
   </div>
   <nav class="top-nav">
-    <a href="../" class="nav-link">Start</a>
-    <a href="clone/server/" class="nav-link">Server Cloner</a>
-    <a href="clone/emoji/" class="nav-link">Nur Emojis</a>
-    <a href="lookup/user/" class="nav-link">User Lookup</a>
-    <a href="lookup/token/" class="nav-link">Token Check</a>
-    <a href="wiki/" class="nav-link active">Wiki</a>
+    <a href="../../" class="nav-link">Start</a>
+    <a href="../../clone/server/" class="nav-link">Server Cloner</a>
+    <a href="../../clone/emoji/" class="nav-link">Nur Emojis</a>
+    <a href="../../lookup/user/" class="nav-link">User Lookup</a>
+    <a href="../../lookup/token/" class="nav-link active">Token Check</a>
+    <a href="../../wiki/" class="nav-link">Wiki</a>
   </nav>
   <div class="status-badge">
-    <strong><?php echo $count; ?></strong> Aktionen
+    <strong id="clone-count"><?php echo $count; ?></strong> Aktionen
   </div>
 </header>
 

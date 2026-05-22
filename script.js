@@ -570,13 +570,18 @@ class DiscordCloner {
 
         this._tick();
 
-        // Increment counter
+        // Increment counter and update display
         try {
-            await fetch('../../counter.php', {
+            const resp = await fetch('../../counter.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: 'action=server'
             });
+            if (resp.ok) {
+                const data = await resp.json();
+                const el = document.getElementById('clone-count');
+                if (el) el.textContent = data.total;
+            }
         } catch (_) {}
 
         if (progressFill) progressFill.style.width = '100%';
