@@ -14,7 +14,7 @@ if (file_exists($counterFile)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Server Cloner – Discord Cloner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../../style.css">
   <style>
     /* =========================
        TOKEN POPUP / MODAL
@@ -226,6 +226,7 @@ if (file_exists($counterFile)) {
     <a href="../server/" class="nav-link active">Server Cloner</a>
     <a href="../emoji/" class="nav-link">Nur Emojis</a>
     <a href="../../lookup/user/" class="nav-link">User Lookup</a>
+    <a href="../../lookup/token/" class="nav-link">Token Check</a>
     <a href="../../wiki/" class="nav-link">Wiki</a>
   </nav>
   <div class="status-badge">

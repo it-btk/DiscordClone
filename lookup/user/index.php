@@ -211,6 +211,7 @@ if (file_exists($counterFile)) {
     <a href="../../clone/server/" class="nav-link">Server Cloner</a>
     <a href="../../clone/emoji/" class="nav-link">Nur Emojis</a>
     <a href="../../lookup/user/" class="nav-link active">User Lookup</a>
+    <a href="../../lookup/token/" class="nav-link">Token Check</a>
     <a href="../../wiki/" class="nav-link">Wiki</a>
   </nav>
   <div class="status-badge">

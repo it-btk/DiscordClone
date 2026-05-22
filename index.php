@@ -196,7 +196,8 @@ if (file_exists($counterFile)) {
     <a href="./" class="nav-link active">Start</a>
     <a href="clone/server/" class="nav-link">Server Cloner</a>
     <a href="clone/emoji/" class="nav-link">Nur Emojis</a>
-    <a href="clone/lookup/user/" class="nav-link">User Lookup</a>
+    <a href="lookup/user/" class="nav-link">User Lookup</a>
+    <a href="lookup/token/" class="nav-link">Token Check</a>
     <a href="wiki/" class="nav-link">Wiki</a>
   </nav>
   <div class="status-badge">
@@ -231,7 +232,7 @@ if (file_exists($counterFile)) {
       <span class="action-tag"><i class="fas fa-arrow-right"></i> Öffnen</span>
     </a>
 
-    <a href="clone/lookup/user/" class="tool-card">
+    <a href="lookup/user/" class="tool-card">
       <div class="icon-wrap"><i class="fas fa-search"></i></div>
       <h3>User Lookup</h3>
       <p>Finde heraus, wann ein Discord-Account erstellt wurde – ganz ohne Token, direkt aus der Snowflake-ID.</p>
