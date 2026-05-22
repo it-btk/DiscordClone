@@ -27,124 +27,153 @@ if (file_exists($counterFile)) {
       align-items: center;
     }
 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .hero-section {
       text-align: center;
       margin-bottom: 3rem;
-      max-width: 620px;
+      max-width: 640px;
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .hero-section .badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.4rem 1rem;
+      gap: 0.5rem;
+      padding: 0.4rem 1.2rem;
       border-radius: 999px;
-      background: rgba(124,92,255,0.1);
-      border: 1px solid rgba(124,92,255,0.15);
+      background: linear-gradient(135deg, rgba(138, 99, 255, 0.1), rgba(67, 178, 255, 0.05));
+      border: 1px solid rgba(138, 99, 255, 0.2);
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--primary-2);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 15px rgba(138, 99, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .hero-section h1 {
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      line-height: 1.05;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      line-height: 1.1;
       font-weight: 800;
-      letter-spacing: -0.06em;
+      letter-spacing: -0.04em;
       color: #fff;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
     .hero-section h1 span {
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      background: linear-gradient(135deg, #fff 0%, var(--primary-2) 40%, var(--primary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      filter: drop-shadow(0 2px 10px rgba(138, 99, 255, 0.2));
     }
     .hero-section p {
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 1.1rem;
+      line-height: 1.8;
       color: var(--text-soft);
+      max-width: 540px;
+      margin: 0 auto;
     }
 
     .tool-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+      gap: 1.5rem;
       width: 100%;
-      max-width: 900px;
+      max-width: 950px;
     }
     .tool-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 2rem 1.8rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 2.2rem 1.8rem;
       text-decoration: none;
       color: var(--text);
-      transition: all 0.25s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
     .tool-card::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      inset: 0;
+      border-radius: 24px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
       opacity: 0;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+      pointer-events: none;
     }
     .tool-card:hover {
-      border-color: var(--border-hover);
-      background: rgba(124,92,255,0.04);
-      transform: translateY(-3px);
+      border-color: transparent;
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px var(--primary-glow);
     }
     .tool-card:hover::before {
       opacity: 1;
     }
     .tool-card .icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      background: rgba(124,92,255,0.1);
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, rgba(138, 99, 255, 0.15), rgba(67, 178, 255, 0.1));
       color: var(--primary);
+      box-shadow: inset 0 0 0 1px rgba(138, 99, 255, 0.2);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .tool-card:hover .icon-wrap {
+      transform: scale(1.1) rotate(5deg);
+      color: #fff;
     }
     .tool-card h3 {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #fff;
       margin: 0;
+      letter-spacing: -0.01em;
     }
     .tool-card p {
-      font-size: 0.82rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.7;
       color: var(--text-soft);
       margin: 0;
       flex: 1;
     }
     .tool-card .action-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--primary-2);
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
       margin-top: auto;
-      padding-top: 0.3rem;
+      padding-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .tool-card .action-tag i {
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       transition: transform 0.2s ease;
     }
     .tool-card:hover .action-tag i {
-      transform: translateX(4px);
+      transform: translateX(6px);
     }
 
     .stats-row {

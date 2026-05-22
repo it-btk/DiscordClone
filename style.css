@@ -7,29 +7,32 @@
   padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 /* =========================
    ROOT
 ========================= */
 :root {
-  --bg: #05070f;
-  --bg-secondary: #0a0f1e;
+  --bg: #030409;
+  --bg-secondary: #070a14;
 
-  --text: #f3f6ff;
-  --text-soft: rgba(255,255,255,0.70);
-  --text-muted: rgba(255,255,255,0.35);
+  --text: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.45);
 
-  --primary: #7c5cff;
-  --primary-2: #5a8dff;
-  --primary-glow: rgba(124,92,255,0.25);
+  --primary: #8a63ff;
+  --primary-2: #43b2ff;
+  --primary-glow: rgba(138, 99, 255, 0.35);
+  --primary-2-glow: rgba(67, 178, 255, 0.35);
 
   --success: #3dd68c;
   --danger: #ff6b6b;
   --warning: #ffb84d;
 
-  --header-bg: rgba(5, 7, 15, 0.75);
-  --card-bg: rgba(255,255,255,0.02);
-  --border-color: rgba(255,255,255,0.06);
-  --border-hover: rgba(124,92,255,0.25);
+  --header-bg: rgba(3, 4, 9, 0.65);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(138, 99, 255, 0.4);
 }
 
 /* =========================
@@ -37,17 +40,17 @@
 ========================= */
 body {
   font-family:
-    "Inter",
+    "Outfit",
+    system-ui,
     -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
     sans-serif;
 
   background:
-    radial-gradient(ellipse 80% 60% at 0% 20%, rgba(124,92,255,0.08), transparent 70%),
-    radial-gradient(ellipse 60% 50% at 100% 10%, rgba(90,141,255,0.06), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(124,92,255,0.04), transparent 50%),
-    linear-gradient(180deg, #05070f 0%, #090e1c 50%, #05070f 100%);
+    radial-gradient(circle at 15% 50%, rgba(138, 99, 255, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(67, 178, 255, 0.1), transparent 50%),
+    radial-gradient(ellipse at 50% 110%, rgba(138, 99, 255, 0.15), transparent 60%),
+    linear-gradient(180deg, #030409 0%, #070a14 50%, #030409 100%);
+  background-attachment: fixed;
 
   color: var(--text);
   min-height: 100vh;
