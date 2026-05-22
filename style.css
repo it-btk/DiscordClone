@@ -24,7 +24,7 @@ body {
 }
 
 /* ======================================================
-   ROOT - Discord Dark Theme Colors
+   ROOT - Discord Light Theme Colors
 ====================================================== */
 :root {
   /* Discord Brand Colors */
@@ -32,36 +32,36 @@ body {
   --blurple-dark: #4752C4;
   --blurple-light: #7289da;
 
-  /* Background Colors - Discord Dark Theme */
-  --bg: #313338;
-  --bg-dark: #1e1f22;
-  --bg-darker: #111214;
-  --bg-light: #2b2d31;
-  --bg-lightest: #383a40;
-  --bg-accent: #404249;
+  /* Background Colors - Discord Light Theme */
+  --bg: #ffffff;
+  --bg-dark: #f2f3f5;
+  --bg-darker: #e3e5e8;
+  --bg-light: #ffffff;
+  --bg-lightest: #f9fafb;
+  --bg-accent: #ebedef;
 
   /* Text Colors */
-  --text: #f2f3f5;
-  --text-muted: #b5bac1;
-  --text-soft: #949ba4;
-  --text-dark: #dbdee1;
+  --text: #060607;
+  --text-muted: #4e5058;
+  --text-soft: #6d6f78;
+  --text-dark: #313338;
 
   /* Brand & Status Colors */
   --primary: #5865F2;
   --primary-2: #4752C4;
   --success: #23a55a;
-  --danger: #f23f43;
+  --danger: #da373c;
   --warning: #f0b232;
   --info: #00a8fc;
 
   /* Borders */
-  --border-color: rgba(255, 255, 255, 0.06);
-  --border-light: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(6, 6, 7, 0.08);
+  --border-light: rgba(6, 6, 7, 0.12);
 
   /* Shadows */
-  --shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
-  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.32);
-  --shadow-elevation: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+  --shadow-elevation: 0 4px 8px rgba(0, 0, 0, 0.06);
 
   /* Radius */
   --radius-xl: 16px;
@@ -358,7 +358,7 @@ a {
    STATS
 ====================================================== */
 .stats-section {
-  background: var(--bg);
+  background: var(--bg-dark);
   text-align: center;
   padding: 100px 24px;
 }
@@ -380,11 +380,12 @@ a {
 }
 
 .stat-item {
-  background: var(--bg-light);
+  background: var(--bg);
   min-width: 220px;
   padding: 36px;
   border-radius: var(--radius-xl);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-elevation);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -422,8 +423,8 @@ a {
 .page-header {
   position: sticky;
   top: 0;
-  background: var(--bg-dark);
-  border-bottom: 1px solid var(--border-color);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-light);
   z-index: 999;
 }
 
@@ -486,9 +487,10 @@ a {
 .form-area,
 .wiki-card,
 .token-popup {
-  background: var(--bg-light);
+  background: var(--bg);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-elevation);
   transition: box-shadow 0.2s ease;
 }
 
@@ -594,7 +596,7 @@ a {
   justify-content: space-between;
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .panel-header h3 {
@@ -639,7 +641,7 @@ a {
 ====================================================== */
 .log-box {
   flex: 1;
-  background: var(--bg-darker);
+  background: var(--bg-dark);
   color: var(--text-muted);
   border-radius: var(--radius-md);
   padding: 16px;
@@ -648,6 +650,7 @@ a {
   overflow-y: auto;
   max-height: 400px;
   line-height: 1.6;
+  border: 1px solid var(--border-light);
 }
 
 .log-line {
@@ -706,7 +709,7 @@ a {
 .progress-track {
   overflow: hidden;
   height: 8px;
-  background: var(--bg-dark);
+  background: var(--bg-darker);
   border-radius: 4px;
 }
 
@@ -811,6 +814,7 @@ a {
   font-size: 0.875rem;
   font-family: 'Consolas', 'Monaco', monospace;
   color: var(--blurple);
+  border: 1px solid var(--border-light);
 }
 
 .wiki-card a {
@@ -824,7 +828,7 @@ a {
 .faq-item {
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .faq-item:last-child {
@@ -923,7 +927,7 @@ a {
 .token-popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -1009,8 +1013,8 @@ a {
 ====================================================== */
 .footer {
   margin-top: auto;
-  background: var(--bg-darker);
-  color: var(--text);
+  background: #23272a;
+  color: #ffffff;
   padding: 80px 32px 40px;
 }
 
@@ -1029,7 +1033,7 @@ a {
 .footer-brand h2 {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--blurple);
+  color: #ffffff;
   margin-bottom: 16px;
 }
 
@@ -1042,8 +1046,8 @@ a {
 .social-links a {
   width: 40px;
   height: 40px;
-  background: var(--bg-light);
-  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1081,18 +1085,18 @@ a {
 }
 
 .footer-col a {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.9375rem;
   transition: color 0.2s ease;
 }
 
 .footer-col a:hover {
-  color: var(--text);
+  color: #ffffff;
   text-decoration: underline;
 }
 
 .footer-bottom-wrapper {
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 32px;
 }
 
@@ -1106,7 +1110,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--text);
+  color: #ffffff;
   font-size: 1.125rem;
   font-weight: 700;
 }
