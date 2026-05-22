@@ -270,11 +270,4 @@ class Cloner {
   }
 }
 
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  const t = document.getElementById('token').value.trim();
-  const s = document.getElementById('source_id').value.trim();
-  const d = document.getElementById('dest_id').value.trim();
-  if (!t || !s || !d) { log('Alle Felder ausfüllen!', 'fail'); return; }
-  await new Cloner(t).start(s, d);
-});
+
