@@ -1,26 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 
-/* =========================
+/* ======================================================
    RESET
-========================= */
+====================================================== */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* =========================
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #ffffff;
+  color: #23272A;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ======================================================
    ROOT
-========================= */
+====================================================== */
 :root {
+
   --blurple: #5865F2;
-  --blurple-hover: #4752C4;
+  --blurple-dark: #4752C4;
 
   --white: #ffffff;
   --off-white: #f6f6f7;
@@ -31,39 +40,26 @@ html {
   --card-bg: #ffffff;
   --input-bg: #f2f3f5;
 
+  --border: #e3e5e8;
+
+  --success: #57F287;
+  --danger: #ED4245;
+  --warning: #FEE75C;
+
   --shadow:
     0 10px 40px rgba(0, 0, 0, 0.08);
 
   --shadow-hover:
-    0 16px 50px rgba(0, 0, 0, 0.12);
+    0 18px 60px rgba(0, 0, 0, 0.12);
 
-  --radius-xl: 28px;
-  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-lg: 24px;
   --radius-md: 18px;
 }
 
-/* =========================
-   BODY
-========================= */
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: var(--white);
-  color: var(--text-dark);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* =========================
+/* ======================================================
    GLOBAL
-========================= */
-img {
-  max-width: 100%;
-}
-
-section {
-  position: relative;
-}
-
+====================================================== */
 .container {
   width: 100%;
   max-width: 1280px;
@@ -71,41 +67,51 @@ section {
   padding: 0 24px;
 }
 
-/* =========================
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ======================================================
    BUTTONS
-========================= */
+====================================================== */
 .btn,
-.main-btn {
+.main-btn,
+.popup-btn,
+.btn-footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-
-  padding: 16px 34px;
+  gap: .7rem;
 
   border: none;
+  cursor: pointer;
+
+  font-weight: 700;
+  font-size: 1rem;
+
   border-radius: 999px;
 
-  font-size: 1rem;
-  font-weight: 700;
-
-  cursor: pointer;
-  text-decoration: none;
-
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
+    transform .2s ease,
+    box-shadow .2s ease,
+    background-color .2s ease;
 }
 
 .btn:hover,
-.main-btn:hover {
+.main-btn:hover,
+.popup-btn:hover,
+.btn-footer:hover {
   transform: translateY(-2px);
 }
 
 .btn-white {
   background: white;
   color: var(--text-dark);
+  padding: 16px 34px;
 }
 
 .btn-white:hover {
@@ -116,29 +122,38 @@ section {
 .btn-dark {
   background: #23272A;
   color: white;
+  padding: 16px 34px;
 }
 
 .btn-dark:hover {
-  background: #2f3136;
-  box-shadow: var(--shadow-hover);
+  background: #2d3136;
 }
 
 .btn-blurple,
-.main-btn {
+.main-btn,
+.popup-btn,
+.btn-footer {
   background: var(--blurple);
   color: white;
 }
 
 .btn-blurple:hover,
-.main-btn:hover {
-  background: var(--blurple-hover);
+.main-btn:hover,
+.popup-btn:hover,
+.btn-footer:hover {
+  background: var(--blurple-dark);
   box-shadow:
     0 10px 30px rgba(88, 101, 242, 0.3);
 }
 
-/* =========================
+.main-btn {
+  width: 100%;
+  height: 60px;
+}
+
+/* ======================================================
    NAVBAR
-========================= */
+====================================================== */
 .navbar {
   position: absolute;
   inset: 0 0 auto 0;
@@ -150,9 +165,10 @@ section {
   justify-content: space-between;
 
   max-width: 1280px;
+
   margin: 0 auto;
 
-  padding: 0 32px;
+  padding: 0 30px;
 
   z-index: 100;
 }
@@ -162,11 +178,10 @@ section {
   align-items: center;
   gap: 12px;
 
-  text-decoration: none;
-
   color: white;
+
+  font-size: 1.3rem;
   font-weight: 800;
-  font-size: 1.2rem;
 }
 
 .nav-brand img {
@@ -180,8 +195,9 @@ section {
 
 .nav-links a {
   color: white;
-  text-decoration: none;
+
   font-weight: 700;
+
   position: relative;
 }
 
@@ -197,7 +213,7 @@ section {
 
   background: white;
 
-  transition: width 0.2s ease;
+  transition: width .2s ease;
 }
 
 .nav-links a:hover::after {
@@ -208,26 +224,28 @@ section {
   background: white;
   color: var(--text-dark);
 
-  padding: 10px 20px;
+  padding: 12px 24px;
 
   border-radius: 999px;
 
-  text-decoration: none;
   font-weight: 700;
 
-  transition: all 0.2s ease;
+  transition: all .2s ease;
 }
 
 .btn-login:hover {
   color: var(--blurple);
+
   transform: translateY(-2px);
+
   box-shadow: var(--shadow);
 }
 
-/* =========================
+/* ======================================================
    HERO
-========================= */
-.hero {
+====================================================== */
+.hero,
+.tool-hero {
   background:
     linear-gradient(135deg,
       #5865F2 0%,
@@ -235,40 +253,76 @@ section {
 
   color: white;
 
-  padding:
-    180px 24px 140px;
+  position: relative;
+  overflow: hidden;
 
   text-align: center;
-
-  overflow: hidden;
 }
 
-.hero-content {
+.hero {
+  padding:
+    180px 24px 140px;
+}
+
+.tool-hero {
+  padding:
+    180px 24px 130px;
+}
+
+.hero-content,
+.tool-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+
   position: relative;
   z-index: 2;
-
-  max-width: 850px;
-  margin: 0 auto;
 }
 
-.hero h1 {
-  font-size: clamp(3rem, 7vw, 5rem);
+.hero h1,
+.tool-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
 
-  line-height: 1;
   font-weight: 800;
 
-  text-transform: uppercase;
+  line-height: 1;
+
   letter-spacing: -2px;
 
-  margin-bottom: 28px;
+  margin-bottom: 26px;
+
+  text-transform: uppercase;
 }
 
-.hero p {
+.hero p,
+.tool-hero p {
   font-size: 1.2rem;
+
   line-height: 1.8;
 
   max-width: 760px;
-  margin: 0 auto 42px;
+
+  margin:
+    0 auto 40px;
+}
+
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  font-size: .9rem;
+  font-weight: 700;
+
+  margin-bottom: 26px;
+
+  backdrop-filter: blur(10px);
 }
 
 .hero-buttons {
@@ -278,9 +332,9 @@ section {
   flex-wrap: wrap;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ======================================================
+   FEATURE SECTIONS
+====================================================== */
 .feature-section {
   padding: 120px 24px;
 }
@@ -290,12 +344,12 @@ section {
 }
 
 .feature-container {
-  display: flex;
-  align-items: center;
-  gap: 80px;
-
   max-width: 1280px;
   margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 90px;
 }
 
 .feature-container.reverse {
@@ -306,7 +360,6 @@ section {
   flex: 1.2;
 
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -316,7 +369,7 @@ section {
   color: var(--blurple);
 
   filter:
-    drop-shadow(0 20px 40px rgba(88, 101, 242, 0.2));
+    drop-shadow(0 20px 40px rgba(88, 101, 242, 0.25));
 }
 
 .feature-text {
@@ -324,9 +377,10 @@ section {
 }
 
 .feature-text h2 {
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
 
   line-height: 1.1;
+
   font-weight: 800;
 
   letter-spacing: -2px;
@@ -336,23 +390,23 @@ section {
 
 .feature-text p {
   font-size: 1.15rem;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
-/* =========================
+/* ======================================================
    STATS
-========================= */
+====================================================== */
 .stats-section {
   background: var(--off-white);
 
+  text-align: center;
+
   padding:
     120px 24px;
-
-  text-align: center;
 }
 
 .stats-section h2 {
-  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
 
   font-weight: 800;
 
@@ -362,132 +416,159 @@ section {
 .stats-grid {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 36px;
+
   flex-wrap: wrap;
 
-  max-width: 1100px;
-  margin: 0 auto 70px;
+  max-width: 1200px;
+
+  margin:
+    0 auto 60px;
 }
 
 .stat-item {
   background: white;
 
-  min-width: 220px;
+  min-width: 240px;
 
-  padding: 40px;
+  padding: 42px;
 
   border-radius: var(--radius-xl);
 
   box-shadow: var(--shadow);
 
-  transition: all 0.2s ease;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
 }
 
 .stat-item:hover {
   transform: translateY(-6px);
+
   box-shadow: var(--shadow-hover);
 }
 
 .stat-item h3 {
   font-size: 4rem;
-  font-weight: 800;
-
-  color: var(--blurple);
 
   line-height: 1;
 
-  margin-bottom: 12px;
+  color: var(--blurple);
+
+  margin-bottom: 10px;
 }
 
 .stat-item p {
   font-weight: 700;
 }
 
-/* =========================
+/* ======================================================
    PAGE WRAPPER
-========================= */
+====================================================== */
 .page-wrapper {
-  background: var(--off-white);
-
   min-height: 100vh;
+
+  background:
+    linear-gradient(to bottom,
+      #f6f6f7 0%,
+      #ffffff 100%);
 
   display: flex;
   flex-direction: column;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ======================================================
+   PAGE HEADER
+====================================================== */
 .page-header {
+  position: sticky;
+  top: 0;
+
   background: white;
 
   border-bottom:
     1px solid rgba(0, 0, 0, 0.06);
 
-  position: sticky;
-  top: 0;
-
-  z-index: 100;
+  z-index: 999;
 }
 
-/* =========================
+/* ======================================================
+   TOOL SECTION
+====================================================== */
+.tool-section {
+  position: relative;
+  z-index: 20;
+}
+
+/* ======================================================
    LAYOUT
-========================= */
+====================================================== */
 .layout {
-  width: 100%;
   max-width: 1280px;
 
-  margin: 60px auto;
+  margin:
+    -80px auto 100px;
 
   padding: 0 24px;
 
   display: flex;
   gap: 32px;
 
-  flex: 1;
+  align-items: stretch;
 }
 
 .left-side {
   flex: 1;
 }
 
-/* =========================
+/* ======================================================
    CARDS
-========================= */
+====================================================== */
 .panel,
 .form-area,
 .wiki-card,
 .token-popup {
-  background: var(--card-bg);
+  background: white;
 
   border-radius: var(--radius-xl);
-
-  padding: 42px;
 
   box-shadow: var(--shadow);
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform .2s ease,
+    box-shadow .2s ease;
 }
 
 .panel:hover,
 .form-area:hover,
 .wiki-card:hover {
   transform: translateY(-4px);
+
   box-shadow: var(--shadow-hover);
 }
 
+.form-area,
 .panel {
-  width: 380px;
+  min-height: 650px;
+}
+
+.form-area {
+  padding: 48px;
+}
+
+.panel {
+  width: 420px;
+
+  padding: 36px;
 
   display: flex;
   flex-direction: column;
 }
 
 .form-area h2,
+.panel h3,
 .wiki-card h2 {
-  font-size: 2.4rem;
+  font-size: 2.3rem;
 
   font-weight: 800;
 
@@ -495,7 +576,7 @@ section {
 
   letter-spacing: -1px;
 
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .form-area p,
@@ -503,9 +584,9 @@ section {
   color: #5c6068;
 }
 
-/* =========================
-   FIELDS
-========================= */
+/* ======================================================
+   FORM
+====================================================== */
 .field {
   margin-bottom: 26px;
 }
@@ -515,13 +596,14 @@ section {
 
   margin-bottom: 10px;
 
-  font-size: 0.75rem;
+  font-size: .78rem;
   font-weight: 800;
 
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-
   color: #72767d;
+
+  letter-spacing: .04em;
+
+  text-transform: uppercase;
 }
 
 .field input,
@@ -529,21 +611,28 @@ section {
 .field select {
   width: 100%;
 
-  background: var(--input-bg);
+  height: 64px;
+
+  background: white;
 
   border:
-    2px solid transparent;
+    2px solid var(--border);
 
-  border-radius: 18px;
+  border-radius: 20px;
 
-  padding: 16px 18px;
+  padding: 0 20px;
 
   font-size: 1rem;
   font-family: inherit;
 
-  color: var(--text-dark);
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
 
-  transition: all 0.2s ease;
+.field textarea {
+  min-height: 140px;
+  padding-top: 20px;
 }
 
 .field input:focus,
@@ -551,12 +640,10 @@ section {
 .field select:focus {
   outline: none;
 
-  background: white;
-
   border-color: var(--blurple);
 
   box-shadow:
-    0 0 0 6px rgba(88, 101, 242, 0.12);
+    0 0 0 8px rgba(88, 101, 242, 0.12);
 }
 
 .input-row {
@@ -568,60 +655,9 @@ section {
   flex: 1;
 }
 
-/* =========================
-   LOG BOX
-========================= */
-.log-box {
-  background: #1f2125;
-
-  color: #d7dadf;
-
-  border-radius: 22px;
-
-  padding: 24px;
-
-  margin-top: 24px;
-
-  min-height: 320px;
-
-  font-family:
-    Consolas,
-    monospace;
-
-  font-size: 0.9rem;
-
-  overflow-y: auto;
-
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-}
-
-.log-line {
-  margin-bottom: 8px;
-}
-
-.log-line.success,
-.log-line.done {
-  color: #57F287;
-}
-
-.log-line.error,
-.log-line.fail {
-  color: #ED4245;
-}
-
-.log-line.warn,
-.log-line.warning {
-  color: #FEE75C;
-}
-
-.log-line.info {
-  color: #a0a4ab;
-}
-
-/* =========================
+/* ======================================================
    PANEL HEADER
-========================= */
+====================================================== */
 .panel-header {
   display: flex;
   align-items: center;
@@ -631,8 +667,8 @@ section {
 }
 
 .panel-header h3 {
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 .live-badge {
@@ -640,9 +676,9 @@ section {
   align-items: center;
   gap: 8px;
 
-  color: #57F287;
+  color: var(--success);
 
-  font-size: 0.8rem;
+  font-size: .8rem;
   font-weight: 800;
 }
 
@@ -652,15 +688,66 @@ section {
 
   border-radius: 50%;
 
-  background: #57F287;
+  background: var(--success);
 
   box-shadow:
-    0 0 12px rgba(87, 242, 135, 0.5);
+    0 0 10px rgba(87, 242, 135, 0.5);
 }
 
-/* =========================
+/* ======================================================
+   LOG BOX
+====================================================== */
+.log-box {
+  flex: 1;
+
+  background:
+    linear-gradient(135deg,
+      #1f2228,
+      #18191f);
+
+  color: #d7dadf;
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  font-family:
+    Consolas,
+    monospace;
+
+  font-size: .9rem;
+
+  overflow-y: auto;
+
+  margin-top: 20px;
+}
+
+.log-line {
+  margin-bottom: 8px;
+}
+
+.log-line.success,
+.log-line.done {
+  color: var(--success);
+}
+
+.log-line.error,
+.log-line.fail {
+  color: var(--danger);
+}
+
+.log-line.warning,
+.log-line.warn {
+  color: var(--warning);
+}
+
+.log-line.info {
+  color: #a0a4ab;
+}
+
+/* ======================================================
    PROGRESS
-========================= */
+====================================================== */
 .progress-wrap {
   margin-top: 28px;
 }
@@ -680,28 +767,26 @@ section {
 
   background: var(--blurple);
 
-  width: 0%;
-
   border-radius: inherit;
 
-  transition: width 0.3s ease;
+  width: 0%;
+
+  transition: width .3s ease;
 }
 
 .progress-status {
-  margin-top: 10px;
-
   display: flex;
   align-items: center;
   gap: 10px;
 
-  color: #72767d;
+  margin-top: 12px;
 
-  font-size: 0.9rem;
+  color: #72767d;
 }
 
-/* =========================
+/* ======================================================
    WIKI
-========================= */
+====================================================== */
 .wiki-wrapper {
   width: 100%;
   max-width: 960px;
@@ -709,50 +794,53 @@ section {
   margin: 0 auto;
 
   padding:
-    60px 24px 100px;
+    80px 24px 120px;
 }
 
 .wiki-header {
   text-align: center;
 
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 .wiki-header h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
 
   font-weight: 800;
 
   letter-spacing: -2px;
 
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .wiki-header p {
-  max-width: 700px;
+  max-width: 720px;
 
   margin: 0 auto;
 
-  color: #5c6068;
-
   line-height: 1.8;
+
+  color: #5c6068;
 }
 
 .wiki-card {
-  margin-bottom: 30px;
+  padding: 42px;
+
+  margin-bottom: 28px;
 }
 
 .wiki-card h3 {
   margin:
-    32px 0 12px;
+    30px 0 12px;
 
   font-size: 1.2rem;
+
   font-weight: 800;
 }
 
 .wiki-card ul,
 .wiki-card ol {
-  padding-left: 22px;
+  padding-left: 24px;
 }
 
 .wiki-card li {
@@ -762,17 +850,20 @@ section {
 .wiki-card code {
   background: #eef1f5;
 
-  padding: 4px 8px;
+  padding: 5px 10px;
 
-  border-radius: 8px;
+  border-radius: 10px;
 
-  font-size: 0.9rem;
+  font-size: .9rem;
 
   font-family:
     Consolas,
     monospace;
 }
 
+/* ======================================================
+   STEPS
+====================================================== */
 .step-list {
   list-style: none;
   padding: 0 !important;
@@ -782,12 +873,12 @@ section {
   display: flex;
   gap: 16px;
 
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
 .step-num {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
 
   background: var(--blurple);
 
@@ -804,22 +895,22 @@ section {
   flex-shrink: 0;
 }
 
-/* =========================
+/* ======================================================
    ALERTS
-========================= */
+====================================================== */
 .alert {
   padding: 18px 22px;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
   margin: 24px 0;
 
-  font-size: 0.95rem;
+  font-size: .95rem;
 }
 
 .alert.info {
   background:
-    rgba(88, 101, 242, 0.1);
+    rgba(88, 101, 242, 0.12);
 
   color: #3c44a3;
 }
@@ -828,19 +919,19 @@ section {
   background:
     rgba(254, 231, 92, 0.18);
 
-  color: #806d00;
+  color: #7b6900;
 }
 
 .alert.danger {
   background:
     rgba(237, 66, 69, 0.12);
 
-  color: #9c2325;
+  color: #9f2325;
 }
 
-/* =========================
+/* ======================================================
    TOKEN POPUP
-========================= */
+====================================================== */
 .token-popup-overlay {
   position: fixed;
   inset: 0;
@@ -855,8 +946,6 @@ section {
   justify-content: center;
 
   z-index: 9999;
-
-  animation: fadeIn 0.2s ease;
 }
 
 .token-popup-overlay.hidden {
@@ -866,6 +955,14 @@ section {
 .token-popup {
   width: 92%;
   max-width: 520px;
+
+  padding: 40px;
+}
+
+.token-popup h2 {
+  font-size: 2rem;
+
+  margin-bottom: 10px;
 }
 
 .token-popup p {
@@ -875,9 +972,9 @@ section {
 .privacy-notice {
   background: #f4f5f7;
 
-  border-radius: 18px;
-
   padding: 18px;
+
+  border-radius: 20px;
 
   margin-bottom: 24px;
 }
@@ -888,26 +985,7 @@ section {
 }
 
 .popup-btn {
-  background: var(--blurple);
-  color: white;
-
-  border: none;
-
   padding: 14px 24px;
-
-  border-radius: 999px;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: all 0.2s ease;
-}
-
-.popup-btn:hover {
-  background: var(--blurple-hover);
-
-  transform: translateY(-2px);
 }
 
 .token-status {
@@ -915,24 +993,26 @@ section {
 
   margin-top: 14px;
 
-  color: #57F287;
+  color: var(--success);
 
-  font-size: 0.9rem;
+  font-size: .9rem;
   font-weight: 700;
 }
 
 .token-status.visible {
-  display: block;
+  display: flex;
 }
 
-/* =========================
+/* ======================================================
    FOOTER
-========================= */
+====================================================== */
 .footer {
+  margin-top: 120px;
+
   background:
     linear-gradient(180deg,
       #23272A 0%,
-      #1c1f22 100%);
+      #18191c 100%);
 
   color: white;
 
@@ -954,10 +1034,11 @@ section {
 }
 
 .footer-brand h2 {
-  color: var(--blurple);
+  font-size: 2.6rem;
 
-  font-size: 2.4rem;
   font-weight: 800;
+
+  color: var(--blurple);
 
   margin-bottom: 20px;
 }
@@ -965,26 +1046,30 @@ section {
 .social-links {
   display: flex;
   gap: 18px;
+
+  margin-top: 24px;
 }
 
 .social-links a {
-  width: 50px;
-  height: 50px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
+  width: 52px;
+  height: 52px;
 
   background:
     rgba(255, 255, 255, 0.08);
 
   color: white;
 
-  text-decoration: none;
+  border-radius: 50%;
 
-  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.1rem;
+
+  transition:
+    transform .2s ease,
+    background-color .2s ease;
 }
 
 .social-links a:hover {
@@ -1002,10 +1087,10 @@ section {
 .footer-col h4 {
   color: var(--blurple);
 
-  margin-bottom: 20px;
-
   font-size: 1rem;
   font-weight: 700;
+
+  margin-bottom: 20px;
 }
 
 .footer-col ul {
@@ -1019,9 +1104,7 @@ section {
 .footer-col a {
   color: #d7dadf;
 
-  text-decoration: none;
-
-  transition: color 0.2s ease;
+  transition: color .2s ease;
 }
 
 .footer-col a:hover {
@@ -1046,59 +1129,24 @@ section {
   align-items: center;
   gap: 12px;
 
-  text-decoration: none;
-
   color: white;
 
-  font-weight: 800;
   font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .footer-bottom-brand img {
-  height: 34px;
+  height: 36px;
 }
 
 .btn-footer {
-  background: var(--blurple);
-
-  color: white;
-
-  padding: 12px 24px;
-
-  border-radius: 999px;
-
-  text-decoration: none;
-  font-weight: 700;
-
-  transition: all 0.2s ease;
+  padding: 14px 24px;
 }
 
-.btn-footer:hover {
-  background: var(--blurple-hover);
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 10px 30px rgba(88, 101, 242, 0.3);
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* =========================
+/* ======================================================
    RESPONSIVE
-========================= */
-@media (max-width: 1000px) {
+====================================================== */
+@media (max-width: 1100px) {
 
   .feature-container,
   .feature-container.reverse {
@@ -1129,12 +1177,14 @@ section {
     display: none;
   }
 
-  .hero {
+  .hero,
+  .tool-hero {
     padding-top: 160px;
   }
 
-  .hero h1 {
-    font-size: 2.8rem;
+  .hero h1,
+  .tool-hero h1 {
+    font-size: 3rem;
   }
 
   .feature-text h2 {
