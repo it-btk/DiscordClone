@@ -276,7 +276,7 @@ if (file_exists($counterFile)) {
         LIVE
       </div>
     </div>
-    <div id="log-box" class="log-box"></div>
+    <div id="logs" class="log-box"></div>
   </aside>
 
 </main>
@@ -354,7 +354,7 @@ if (file_exists($counterFile)) {
     }
   });
 
-  // ---- Form submit (reuses Cloner class from script.js) ----
+  // ---- Form submit (uses DiscordCloner from script.js) ----
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -370,11 +370,11 @@ if (file_exists($counterFile)) {
 
     localStorage.setItem(STORAGE_KEY, token);
 
-    if (typeof Cloner !== 'undefined') {
-      const cloner = new Cloner(token);
-      await cloner.start(src, dst);
+    if (typeof DiscordCloner !== 'undefined') {
+      const cloner = new DiscordCloner(token);
+      await cloner.startCloning(src, dst);
     } else {
-      log('Fehler: Cloner-Klasse nicht gefunden.', 'fail');
+      log('Fehler: DiscordCloner-Klasse nicht gefunden.', 'fail');
     }
   });
 
