@@ -20,14 +20,17 @@ if (file_exists($counterFile)) {
       max-width: 620px;
     }
     .token-area h2 {
-      font-size: 0.95rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 1.4rem;
-      color: rgba(255,255,255,0.9);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .token-area p {
-      font-size: 0.82rem;
-      color: var(--text-soft);
+      font-size: 0.9rem;
+      color: var(--text-muted);
       margin-bottom: 1.4rem;
       line-height: 1.6;
     }
@@ -50,19 +53,18 @@ if (file_exists($counterFile)) {
       bottom: 14px;
       background: none;
       border: none;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-soft);
       cursor: pointer;
       font-size: 0.9rem;
-      transition: color 0.2s;
     }
     .toggle-vis:hover {
-      color: rgba(255,255,255,0.7);
+      color: var(--text);
     }
     .check-btn {
       height: 52px;
       padding: 0 1.8rem;
       border: none;
-      border-radius: 14px;
+      border-radius: var(--radius-md);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -71,12 +73,11 @@ if (file_exists($counterFile)) {
       font-size: 0.92rem;
       font-weight: 700;
       color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      background: var(--blurple);
       flex-shrink: 0;
-      transition: transform 0.15s, opacity 0.15s;
     }
-    .check-btn:active {
-      transform: scale(0.97);
+    .check-btn:hover {
+      background: var(--blurple-dark);
     }
 
     /* Loading */
@@ -87,12 +88,12 @@ if (file_exists($counterFile)) {
       align-items: center;
       justify-content: center;
       gap: 0.7rem;
-      color: var(--text-soft);
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
     .token-loading i {
       font-size: 1.3rem;
-      color: var(--primary);
+      color: var(--blurple);
     }
 
     /* Status card */
@@ -110,7 +111,7 @@ if (file_exists($counterFile)) {
       align-items: center;
       gap: 0.6rem;
       padding: 0.7rem 1.2rem;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       font-size: 0.88rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
@@ -119,13 +120,13 @@ if (file_exists($counterFile)) {
       font-size: 1rem;
     }
     .token-status-badge.valid {
-      background: rgba(61,214,140,0.08);
-      border: 1px solid rgba(61,214,140,0.15);
+      background: rgba(35, 165, 90, 0.1);
+      border: 1px solid rgba(35, 165, 90, 0.2);
       color: var(--success);
     }
     .token-status-badge.invalid {
-      background: rgba(255,107,107,0.08);
-      border: 1px solid rgba(255,107,107,0.15);
+      background: rgba(218, 55, 60, 0.1);
+      border: 1px solid rgba(218, 55, 60, 0.2);
       color: var(--danger);
     }
 
@@ -139,11 +140,11 @@ if (file_exists($counterFile)) {
     .banner-wrap {
       width: 100%;
       height: 140px;
-      border-radius: 16px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
       margin-bottom: -40px;
       position: relative;
-      background: rgba(255,255,255,0.03);
+      background: var(--bg-dark);
     }
     .banner-wrap img {
       width: 100%;
@@ -180,7 +181,7 @@ if (file_exists($counterFile)) {
       height: 26px;
       border-radius: 50%;
       border: 2px solid var(--bg);
-      background: var(--primary);
+      background: var(--blurple);
       color: #fff;
       font-size: 0.6rem;
       cursor: pointer;
@@ -188,7 +189,6 @@ if (file_exists($counterFile)) {
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: opacity 0.2s;
     }
     .token-avatar-wrap:hover .dl-btn-sm {
       opacity: 1;
@@ -207,17 +207,17 @@ if (file_exists($counterFile)) {
     .token-user-meta h3 {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 0.15rem;
     }
     .token-user-meta .username-id {
       font-size: 0.8rem;
-      font-family: "JetBrains Mono", "SF Mono", monospace;
+      font-family: "Consolas", "Monaco", monospace;
       color: var(--text-soft);
     }
     .token-user-meta .user-bio {
       font-size: 0.82rem;
-      color: var(--text-soft);
+      color: var(--text-muted);
       margin-top: 0.5rem;
       line-height: 1.5;
       display: none;
@@ -230,9 +230,9 @@ if (file_exists($counterFile)) {
       gap: 1rem;
       margin-top: 1.2rem;
       padding: 1.5rem;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
     }
     .token-info-grid.visible {
       display: grid;
@@ -247,16 +247,16 @@ if (file_exists($counterFile)) {
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-soft);
     }
     .token-info-item .value {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.85);
+      color: var(--text);
       font-weight: 600;
       word-break: break-all;
     }
     .token-info-item .value.nitro-yes {
-      color: var(--primary);
+      color: var(--blurple);
     }
     .token-info-item .value.mfa-on {
       color: var(--success);
@@ -280,9 +280,9 @@ if (file_exists($counterFile)) {
     .token-error {
       display: none;
       margin-top: 1.5rem;
-      background: rgba(255,107,107,0.06);
-      border: 1px solid rgba(255,107,107,0.15);
-      border-radius: 14px;
+      background: rgba(218, 55, 60, 0.08);
+      border: 1px solid rgba(218, 55, 60, 0.15);
+      border-radius: var(--radius-md);
       padding: 1.2rem 1.5rem;
       align-items: center;
       gap: 0.8rem;
@@ -305,22 +305,44 @@ if (file_exists($counterFile)) {
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255,107,107,0.12);
-      border: 1px solid rgba(255,107,107,0.25);
-      color: var(--danger);
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      color: var(--text);
       padding: 0.8rem 1.5rem;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       font-size: 0.85rem;
       font-weight: 600;
       display: none;
       align-items: center;
       gap: 0.6rem;
       z-index: 999;
-      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
       animation: slideUp 0.25s ease;
     }
     .toast.visible {
       display: flex;
+    }
+
+    .privacy-box {
+      background: rgba(88, 101, 242, 0.08);
+      border-left: 3px solid var(--blurple);
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .privacy-box i {
+      color: var(--success);
+      font-size: 0.95rem;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+    .privacy-box strong {
+      color: var(--text);
     }
 
     @media (max-width: 640px) {
@@ -365,15 +387,15 @@ if (file_exists($counterFile)) {
 
   <section class="left-side">
     <div class="token-area">
-      <h2><i class="fas fa-shield-alt" style="margin-right:0.4rem;"></i> Token Checker</h2>
+      <h2><i class="fas fa-shield-alt"></i> Token Checker</h2>
       <p>
-        Überprüfe jeden Discord Token und erhalte detaillierte Account-Informationen –
+        Pruefe jeden Discord Token und erhalte detaillierte Account-Informationen -
         inklusive Avatar, Banner, Badges, Nitro-Status und mehr.
       </p>
 
-      <div class="privacy-notice" style="background:rgba(124,92,255,0.06);border-left:3px solid var(--primary);padding:0.8rem 1rem;border-radius:10px;margin-bottom:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.7);display:flex;align-items:flex-start;gap:0.6rem;">
-        <i class="fas fa-shield-alt" style="color:var(--success);font-size:0.95rem;margin-top:0.1rem;flex-shrink:0;"></i>
-        <span><strong style="color:#fff;">Nur lokal.</strong> Der Token wird ausschließlich von deinem Browser an die Discord-API gesendet. Es erfolgt keine Speicherung oder Weiterleitung an Dritte.</span>
+      <div class="privacy-box">
+        <i class="fas fa-shield-alt"></i>
+        <span><strong>Nur lokal.</strong> Der Token wird ausschliesslich von deinem Browser an die Discord-API gesendet. Es erfolgt keine Speicherung oder Weiterleitung an Dritte.</span>
       </div>
 
       <div class="token-input-row">

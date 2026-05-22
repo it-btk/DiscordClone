@@ -36,7 +36,7 @@ if (file_exists($counterFile)) {
     </div>
 
     <div class="field">
-      <label style="display:block;margin-bottom:0.5rem;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.35);">Dein Discord User Token</label>
+      <label style="display:block;margin-bottom:0.5rem;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);">Dein Discord User Token</label>
       <input type="password" id="popup-token-input" placeholder="Token hier eingefügen..." autofocus>
     </div>
 
@@ -73,10 +73,10 @@ if (file_exists($counterFile)) {
   <section class="left-side">
 
     <div class="form-area">
-      <h2><i class="fas fa-smile" style="margin-right:0.4rem;"></i> Emoji-Kloner</h2>
-      <p style="font-size:0.82rem;color:var(--text-soft);margin-bottom:1.4rem;line-height:1.6;">
+      <h2><i class="fas fa-smile"></i> Emoji-Kloner</h2>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.4rem;line-height:1.6;">
         Kopiere nur die Emojis von einem Discord-Server auf einen anderen.
-        Der Ziel-Server bleibt ansonsten unberührt.
+        Der Ziel-Server bleibt ansonsten unberuehrt.
       </p>
       <form id="emoji-form">
         <div class="field">
