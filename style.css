@@ -105,22 +105,9 @@ a {
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: 3px;
-  transition: background-color 0.17s ease, color 0.17s ease, transform 0.1s ease;
 }
 
-.btn:hover,
-.main-btn:hover,
-.popup-btn:hover,
-.btn-footer:hover {
-  transform: translateY(-1px);
-}
 
-.btn:active,
-.main-btn:active,
-.popup-btn:active,
-.btn-footer:active {
-  transform: translateY(0);
-}
 
 .btn-white {
   background: #fff;
@@ -132,7 +119,6 @@ a {
 
 .btn-white:hover {
   color: var(--blurple);
-  box-shadow: var(--shadow-hover);
 }
 
 .btn-dark {
@@ -145,7 +131,6 @@ a {
 
 .btn-dark:hover {
   background: #36393f;
-  box-shadow: var(--shadow-hover);
 }
 
 .btn-blurple,
@@ -211,7 +196,6 @@ a {
   font-weight: 600;
   font-size: 0.9375rem;
   position: relative;
-  transition: opacity 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -225,12 +209,10 @@ a {
   border-radius: 28px;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-login:hover {
   color: var(--blurple);
-  box-shadow: var(--shadow);
 }
 
 /* ======================================================
@@ -386,12 +368,6 @@ a {
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-elevation);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
 }
 
 .stat-item h3 {
@@ -491,7 +467,6 @@ a {
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-elevation);
-  transition: box-shadow 0.2s ease;
 }
 
 .form-area,
@@ -556,7 +531,6 @@ a {
   font-size: 1rem;
   font-family: inherit;
   color: var(--text);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .field textarea {
@@ -767,10 +741,6 @@ a {
 .wiki-card {
   padding: 32px;
   margin-bottom: 24px;
-}
-
-.wiki-card:hover {
-  box-shadow: var(--shadow-elevation);
 }
 
 .wiki-card h2 {
@@ -1009,13 +979,14 @@ a {
 }
 
 /* ======================================================
-   FOOTER - Discord Style
+   FOOTER - Discord Light Style
 ====================================================== */
 .footer {
   margin-top: auto;
-  background: #23272a;
-  color: #ffffff;
+  background: var(--bg-dark);
+  color: var(--text);
   padding: 80px 32px 40px;
+  border-top: 1px solid var(--border-light);
 }
 
 .footer-container {
@@ -1033,7 +1004,7 @@ a {
 .footer-brand h2 {
   font-size: 2rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text);
   margin-bottom: 16px;
 }
 
@@ -1046,19 +1017,17 @@ a {
 .social-links a {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--bg-dark);
+  color: var(--text-muted);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .social-links a:hover {
-  background: var(--blurple);
-  color: #fff;
+  color: var(--blurple);
 }
 
 .footer-links {
@@ -1085,18 +1054,17 @@ a {
 }
 
 .footer-col a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   font-size: 0.9375rem;
-  transition: color 0.2s ease;
 }
 
 .footer-col a:hover {
-  color: #ffffff;
+  color: var(--blurple);
   text-decoration: underline;
 }
 
 .footer-bottom-wrapper {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-light);
   padding-top: 32px;
 }
 
@@ -1110,7 +1078,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #ffffff;
+  color: var(--text);
   font-size: 1.125rem;
   font-weight: 700;
 }
